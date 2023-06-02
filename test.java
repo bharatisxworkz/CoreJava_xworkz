@@ -142,7 +142,23 @@ Ans- Dot operator is used to invoke the method.
 
 12)What is Method overloading ?
 Ans- Method overloading - method which are same in classnames but difference in the parameters is called as method overloading.
+	
+class Division0{
+public static int div(int a, int b)
+{
+return a/b;
 
+}
+public static int div(int a, int b, int c)
+{
+return a/b/c;
+}
+
+public static int div(int a, int b, int c, int d)
+{
+return a/b/c/d;
+}
+}
 	
 13)Difference between .java file and .class file.
 Ans- .java file converts the source code into byte code, then run the program and .class file compile the code and gives the output.	
@@ -153,4 +169,7 @@ Ana-    Array is used to optimize the code.
 	We can store multiple data in an array by seperated comma with it. 
 	The size of an array is (n-1)
 	Array index is always starts with zero(0).
+
+15)what is the base class of all the classes?
+Ans - object class.
 	 

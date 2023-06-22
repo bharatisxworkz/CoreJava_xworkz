@@ -17,8 +17,8 @@ public class Patient {
    private String address;
    private long contactNo;
    private String diseaseName;
-   Document document;
-    Gender gender;
+   private String  attenderName;
+   private String   wardNo;
 
 
 

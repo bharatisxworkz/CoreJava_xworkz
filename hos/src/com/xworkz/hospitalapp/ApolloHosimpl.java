@@ -42,17 +42,31 @@ public class ApolloHosimpl implements Hospital {
 
     }
 
-    @Override
+    //@Override
     public String getStreetNameByPatientId(int existingPatientId) {
         System.out.println("invoking getStreetNameByPatientId method");
         String streetName=null;
         for (Patient pat : patient) {
             if(pat.getId()==existingPatientId){
-                streetName=pat.getAddress().getCountry().getState().getCity().getArea().getStreet().getStreetName();
-             //   System.out.println(pat.getAddress().);
+               streetName=pat.getAddress().getCountry().getState().getCity().getArea().getStreet().getStreetName();
             }
 
         }
-        return streetName;
+
+
+     return streetName;
+    }
+
+    @Override
+    public String[] getPatientNameByDiseaseName(String diseaseName) {
+        System.out.println("invoking getPatientNameByDiseaseName method");
+            String patientName[] = new String[2];
+            for (Patient pat: this.patient) {
+                if(pat.getDiseaseName().equals(diseaseName)){
+                   patientName[index] = pat.getName();
+                }
+
+            }
+            return patientName;
     }
 }

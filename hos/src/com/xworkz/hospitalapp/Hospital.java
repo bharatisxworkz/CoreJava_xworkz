@@ -4,6 +4,6 @@ public interface Hospital {
     boolean addPatient(Patient patient);
     void getAllPatient();
 
-    String getStreetNameByPatientId(int existingPatientId);
-
+   String getStreetNameByPatientId(int existingPatientId);
+    String[] getPatientNameByDiseaseName(String diseaseName);
 }

@@ -7,6 +7,9 @@ public class Patient {
      private String name;
      private String diseaseName;
      Address address;
+     private String bloodGroup;
+     private int age;
+
 
 
 }

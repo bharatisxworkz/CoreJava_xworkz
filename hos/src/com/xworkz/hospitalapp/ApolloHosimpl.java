@@ -1,5 +1,8 @@
 package com.xworkz.hospitalapp;
 
+import com.xworkz.hospitalapp.exception.DiseaseNotFoundException;
+import com.xworkz.hospitalapp.exception.PatientIdNotFoundException;
+
 public class ApolloHosimpl implements Hospital {
     Patient patient[];
     int index;
@@ -43,13 +46,15 @@ public class ApolloHosimpl implements Hospital {
     }
 
     //@Override
-    public String getStreetNameByPatientId(int existingPatientId) {
+    public String getStreetNameByPatientId(int id) {
         System.out.println("invoking getStreetNameByPatientId method");
         String streetName=null;
         for (Patient pat : patient) {
-            if(pat.getId()==existingPatientId){
+            if(pat.getId()==id){
                streetName=pat.getAddress().getCountry().getState().getCity().getArea().getStreet().getStreetName();
             }
+            PatientIdNotFoundException exception = new PatientIdNotFoundException(id);
+            throw exception;
 
         }
 
@@ -64,6 +69,10 @@ public class ApolloHosimpl implements Hospital {
             for (Patient pat: this.patient) {
                 if(pat.getDiseaseName().equals(diseaseName)){
                    patientName[index] = pat.getName();
+                }
+                else{
+                    DiseaseNotFoundException exception = new DiseaseNotFoundException(diseaseName);
+                    throw exception;
                 }
 
             }

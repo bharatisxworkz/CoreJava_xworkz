@@ -1,5 +1,8 @@
 package com.xworkz.hospitalapp;
 
+import com.xworkz.hospitalapp.exception.DiseaseNotFoundException;
+import com.xworkz.hospitalapp.exception.PatientIdNotFoundException;
+
 import java.util.Scanner;
 
 public class Tester {
@@ -36,15 +39,15 @@ public class Tester {
             City city = new City();
             State state = new State();
             Country country = new Country();
-            Address address=new Address();
+            Address address = new Address();
 
             System.out.println("Enter the street name:");
             street.setStreetName(sc.next());
             System.out.println("Enter the area name:");
             area.setArea(sc.next());
             System.out.println("Enter the City name:");
-           city.setCity(sc.next());
-           System.out.println("Enter the state name:");
+            city.setCity(sc.next());
+            System.out.println("Enter the state name:");
             state.setState(sc.next());
             System.out.println("Enter the country name:");
             country.setCountry(sc.next());
@@ -58,39 +61,51 @@ public class Tester {
 
 
         }
-        String text ;
-        do{
+        String text;
+        do {
             System.out.println("1.Get all the patient details");
             System.out.println("2. Get patient by name");
+            System.out.println("3. Get Patient by id");
             int option = sc.nextInt();
-            switch (option){
-                case 1: System.out.println("the list of patients are:");
-                hospital.getAllPatient();
-                break;
-
-                case 2 :   System.out.println("patient disease name");
-                    hospital.getPatientNameByDiseaseName(sc.next());
+            switch (option) {
+                case 1:
+                    System.out.println("the list of patients are:");
+                    hospital.getAllPatient();
                     break;
 
-                case 3: System.out.println("enter patient id");
-                    hospital.getStreetNameByPatientId(sc.nextInt());
+                case 2:
+                    System.out.println("patient disease name");
+                    try {
+                        hospital.getPatientNameByDiseaseName(sc.next());
+                    } catch (DiseaseNotFoundException b) {
+                        b.printStackTrace();
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("enter patient id");
+                    try {
+                        hospital.getStreetNameByPatientId(sc.nextInt());
+                    } catch (PatientIdNotFoundException a) {
+                        a.printStackTrace();
+                    }
+            }
+
+
+
+                    System.out.println("Do you want to continue: y\n");
+                    text = sc.next();
 
             }
-            System.out.println("Do you want to continue: y\n");
-            text = sc.next();
+            while (text.equals("y")) ;
 
-        }while(text.equals("y"));
+            hospital.getAllPatient();
 
-
-
-        hospital.getAllPatient();
-
-       System.out.println("enter patient id");
-        hospital.getStreetNameByPatientId(sc.nextInt());
-
-       System.out.println("patient disease name");
-        hospital.getPatientNameByDiseaseName(sc.next());
+           //System.out.println("enter patient id");
+              //  hospital.getStreetNameByPatientId(sc.nextInt());
 
 
-    }
-}
+           }
+        }
+
+

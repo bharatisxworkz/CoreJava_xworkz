@@ -1,0 +1,7 @@
+com\xworkz\softwareproduct3\service\SoftwareProduct3ServiceImpl.class
+com\xworkz\softwareproduct3\repo\SoftwareProduct3Repo.class
+com\xworkz\softwareproduct3\runner\SoftwareProduct3Servlet.class
+com\xworkz\softwareproduct3\dto\SoftwareProduct3DTO.class
+com\xworkz\softwareproduct3\repo\SoftwareProduct3RepoImpl.class
+com\xworkz\softwareproduct3\util\SoftwareProduct3Util.class
+com\xworkz\softwareproduct3\service\SoftwareProduct3Service.class
